@@ -1,0 +1,29 @@
+{
+  "name": "fake-api-server",
+  "version": "0.0.1",
+  "description": "A fake REST API server that can be driven through a web interface or URL parameters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "htts://github.com/poppiestar/fake-api-server"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "web",
+    "interface",
+    "test"
+  ],
+  "author": "Drew Miller",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "supertest": "^0.15.0"
+  }
+}
