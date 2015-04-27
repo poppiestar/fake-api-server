@@ -1,13 +1,19 @@
 var express = require('express');
+var glob = require('glob');
+var fakeApi = require('./lib/api-server');
 
 var app = express();
 
-app.get('/user', function (req, res) {
-    res.status(200).send({ name: 'someone' });
-});
+app.use('/fake', fakeApi);
 
-app.get('*', function (req, res) {
-    res.status(404).send('wtf');
+glob('./api/**/*Api.js', function (err, files) {
+    if (err) {
+        return console.log(err);
+    }
+
+    for (var file in files) {
+        console.log(files[file]);
+    }
 });
 
 app.listen(4040, function () {
