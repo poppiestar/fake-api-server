@@ -1,10 +1,11 @@
 var express = require('express');
+var fs = require('fs');
 var glob = require('glob');
 var fakeApi = require('./lib/api-server');
 
 var app = express();
 
-app.use('/fake', fakeApi);
+app.use('/', fakeApi.api());
 
 glob('./api/**/*Api.js', function (err, files) {
     if (err) {
@@ -12,7 +13,7 @@ glob('./api/**/*Api.js', function (err, files) {
     }
 
     for (var file in files) {
-        console.log(files[file]);
+        fakeApi.addApi(require(files[file]));
     }
 });
 
