@@ -18,6 +18,7 @@ function response () {
 }
 
 module.exports = {
+    'name': 'Test API',
     'path': '/',
     'type': 'GET',
     'response': response()

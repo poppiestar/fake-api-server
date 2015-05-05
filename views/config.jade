@@ -1,0 +1,20 @@
+doctype html
+html(lang="en-GB")
+    head
+        title Fake API Server Config Page
+    body
+        h1 Available APIs
+
+        ul.apis
+            each api in apiFiles
+                li.api
+                    h2= api.name
+                    p Path: #{api.path}
+                    p Type: #{api.type}
+
+                    h3 Response
+                    ul.response
+                        each value, index in api.response
+                            li= index
+
+
