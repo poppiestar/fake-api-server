@@ -7,14 +7,5 @@ html(lang="en-GB")
 
         ul.apis
             each api in apiFiles
-                li.api
-                    h2= api.name
-                    p Path: #{api.path}
-                    p Type: #{api.type}
-
-                    h3 Response
-                    ul.response
-                        each value, index in api.response
-                            li= index
-
+                li.api Path: #{api.path} - #{api.type} - #{api.name}
 
