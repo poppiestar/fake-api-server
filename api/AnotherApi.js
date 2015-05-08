@@ -2,8 +2,8 @@
 var Constants = require('../lib/api-constants');
 
 module.exports = {
-    'name': 'Test API',
-    'path': '/',
+    'name': 'Another API',
+    'path': '/alt',
     'type': 'GET',
     'response': {
         valid: {
