@@ -8,11 +8,15 @@ module.exports = {
     'response': {
         valid: {
             type: Constants.BOOLEAN,
-            description: 'Whether this is a valid record or not'
+            description: 'Whether the thing is valid'
         },
         name: {
             type: Constants.STRING,
-            description: 'The name of the user'
+            description: 'The name of the thing'
+        },
+        count: {
+            type: Constants.NUMBER,
+            description: 'The number of things'
         }
     }
 };
