@@ -1,26 +1,26 @@
-mixin renderApi(api)
-    .response
-        p #{api.description}
+mixin renderAttribute(attribute)
+    .attribute
+        p #{attribute.description}
 
-        if api.type === constants.BOOLEAN
+        if attribute.type === constants.BOOLEAN
             p Boolean
                 input(type='checkbox')
-        else if api.type === constants.STRING
+        else if attribute.type === constants.STRING
             p String
                 input(type='text')
-        else if api.type === constants.NUMBER
+        else if attribute.type === constants.NUMBER
             p Number
                 input(type='number')
-        else if api.type === constants.COLLECTION
+        else if attribute.type === constants.COLLECTION
             h2 Collection
-            p Count: #{api.count}
-            +renderResponse(api.response)
+            p Count: #{attribute.count}
+            +renderEndpoint(attribute.response)
 
-mixin renderResponse(response)
+mixin renderEndpoint(response)
     ul.response
-        each val, index in response 
-            li #{index}:
-                +renderApi(val)
+        each attribute, attributeName in response 
+            li #{attributeName}:
+                +renderAttribute(attribute)
 doctype html
 html(lang="en-GB")
     head
@@ -33,5 +33,5 @@ html(lang="en-GB")
                 li.api
                     p Path: #{api.path} - #{api.type} - #{api.name}
                     iframe(src=api.path)
-                    +renderResponse(api.response)
+                    +renderEndpoint(api.response)
 
