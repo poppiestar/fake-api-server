@@ -1,9 +1,11 @@
 mixin renderApi(api)
     .response
+        p #{api.description}
+
         if api.type === 0
-            | Boolean
+            input(type='checkbox')
         else if api.type === 1
-            | String
+            input(type='text')
 
 doctype html
 html(lang="en-GB")
