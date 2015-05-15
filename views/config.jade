@@ -1,3 +1,10 @@
+mixin renderApi(api)
+    .response
+        if api.type === 0
+            | Boolean
+        else if api.type === 1
+            | String
+
 doctype html
 html(lang="en-GB")
     head
@@ -7,5 +14,10 @@ html(lang="en-GB")
 
         ul.apis
             each api in apiFiles
-                li.api Path: #{api.path} - #{api.type} - #{api.name}
+                li.api
+                    p Path: #{api.path} - #{api.type} - #{api.name}
+                    ul.response
+                        each val, index in api.response 
+                            li #{index}:
+                                +renderApi(val)
 
