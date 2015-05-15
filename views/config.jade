@@ -18,6 +18,7 @@ html(lang="en-GB")
             each api in apiFiles
                 li.api
                     p Path: #{api.path} - #{api.type} - #{api.name}
+                    iframe(src=api.path)
                     ul.response
                         each val, index in api.response 
                             li #{index}:
