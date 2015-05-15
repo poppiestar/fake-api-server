@@ -17,6 +17,17 @@ module.exports = {
         count: {
             type: Constants.NUMBER,
             description: 'The number of things'
+        },
+        things: {
+            type: Constants.COLLECTION,
+            description: 'A group of things',
+            count: 3,
+            response: {
+                firstname: {
+                    type: Constants.STRING,
+                    description: 'Firstname'
+                }
+            }
         }
     }
 };

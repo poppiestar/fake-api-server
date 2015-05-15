@@ -2,6 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var glob = require('glob');
 var fakeApi = require('./lib/api-server');
+var Constants = require('./lib/api-constants');
 
 var apiFiles = {};
 
@@ -25,7 +26,7 @@ glob('./api/**/*Api.js', function (err, files) {
     }
 
     app.get('/config', function (req, res) {
-        res.render('config', { apiFiles: apiFiles });
+        res.render('config', { constants: Constants, apiFiles: apiFiles });
     });
 
     app.listen(4040, function () {
