@@ -13,6 +13,10 @@ module.exports = {
         name: {
             type: Constants.STRING,
             description: 'The name of the user'
+        },
+        news: {
+            type: Constants.OBJECT,
+            description: 'An object describing news'
         }
     }
 };

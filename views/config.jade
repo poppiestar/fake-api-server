@@ -13,6 +13,9 @@ mixin renderAttribute(attribute, value)
         else if attribute.type === constants.NUMBER
             p Number:
                 input(type='number', value=value)
+        else if attribute.type === constants.OBJECT
+            div Object:
+                p Render object
         else if attribute.type === constants.COLLECTION
             h2 Collection:
             p Count: #{attribute.count}
