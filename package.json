@@ -23,7 +23,8 @@
     "chance": "^0.7.3",
     "express": "^4.12.3",
     "glob": "^5.0.6",
-    "jade": "^1.9.2"
+    "jade": "^1.9.2",
+    "jsonfile": "^2.0.0"
   },
   "devDependencies": {
     "mocha": "^2.2.4",
