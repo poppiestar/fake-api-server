@@ -1,31 +1,5 @@
 extends ./layout.jade
-
-mixin renderAttribute(attribute, value)
-    .attribute
-        p #{attribute.description}
-
-        if attribute.type === constants.BOOLEAN
-            p Boolean:
-                input(type='checkbox', checked=value)
-        else if attribute.type === constants.STRING
-            p String:
-                input(type='text', value=value)
-        else if attribute.type === constants.NUMBER
-            p Number:
-                input(type='number', value=value)
-        else if attribute.type === constants.OBJECT
-            div Object:
-                p Render object
-        else if attribute.type === constants.COLLECTION
-            h2 Collection:
-            p Count: #{attribute.count}
-            +renderResponse(attribute.response, value)
-
-mixin renderResponse(description, actual)
-    ul.response
-        each attribute, attributeName in description
-            li #{attributeName}:
-                +renderAttribute(attribute, actual[attributeName])
+include ./renderMixins.jade
 
 block body
     if endpoint
