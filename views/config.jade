@@ -3,9 +3,11 @@ include ./renderMixins.jade
 
 block body
     if endpoint
-        p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
-        iframe(src=endpoint.path)
-        +renderResponse(endpoint.response, endpoint.actual)
+        form(action='/config', method='post')
+            p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
+            iframe(src=endpoint.path)
+            +renderResponse(endpoint.response, endpoint.actual)
+            input(type='submit', value='Submit')
     else
         p Select an API to view
 

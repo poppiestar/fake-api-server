@@ -36,6 +36,10 @@ glob('./api/**/*Api.js', function (err, files) {
         res.render('config', { constants: Constants, endpoints: endpoints, endpoint: endpoints[endpoint] });
     });
 
+    app.post('/config', function (req, res) {
+        res.status(200).send('Post received');
+    });
+
     // handle 404s
     app.use(function (req, res) {
         res.status(404).render('404');
