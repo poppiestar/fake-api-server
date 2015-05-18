@@ -28,10 +28,8 @@ mixin renderResponse(description, actual)
                 +renderAttribute(attribute, actual[attributeName])
 
 block body
-    ul.endpoints
-        each endpoint in endpoints
-            li.endpoint
-                p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
-                iframe(src=endpoint.path)
-                +renderResponse(endpoint.response, endpoint.actual)
+    if endpoint
+        p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
+        iframe(src=endpoint.path)
+        +renderResponse(endpoint.response, endpoint.actual)
 

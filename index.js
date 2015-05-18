@@ -28,8 +28,13 @@ glob('./api/**/*Api.js', function (err, files) {
     }
 
     app.get('/config', function (req, res) {
+        var endpoint;
 
-        res.render('config', { constants: Constants, endpoints: endpoints });
+        if (req.query.endpoint) {
+            endpoint = req.query.endpoint;
+        }
+        
+        res.render('config', { constants: Constants, endpoints: endpoints, endpoint: endpoints[endpoint] });
     });
 
     // handle 404s
