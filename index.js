@@ -35,6 +35,11 @@ glob('./api/**/*Api.js', function (err, files) {
         res.render('config', { constants: Constants, apiFiles: apiFiles });
     });
 
+    // handle 404s
+    app.use(function (req, res) {
+        res.status(404).render('404');
+    });
+
     app.listen(4040, function () {
         console.log('listening on port 4040');
     });
