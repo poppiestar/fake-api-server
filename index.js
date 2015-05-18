@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var glob = require('glob');
 var fakeApi = require('./lib/api-server');
 var Constants = require('./lib/api-constants');
