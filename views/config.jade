@@ -27,10 +27,10 @@ mixin renderEndpoint(description, actual)
 block body
     h1 Available APIs
 
-    ul.apis
-        each api in apiFiles
-            li.api
-                p Path: #{api.path} - #{api.type} - #{api.name}
-                iframe(src=api.path)
-                +renderEndpoint(api.response, api.actual)
+    ul.endpoints
+        each endpoint in endpoints
+            li.endpoint
+                p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
+                iframe(src=endpoint.path)
+                +renderEndpoint(endpoint.response, endpoint.actual)
 

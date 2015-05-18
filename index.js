@@ -5,7 +5,7 @@ var fakeApi = require('./lib/api-server');
 var Constants = require('./lib/api-constants');
 var responseUtils = require('./lib/response-utils');
 
-var apiFiles = {};
+var endpoints = {};
 
 var app = express();
 
@@ -22,17 +22,17 @@ glob('./api/**/*Api.js', function (err, files) {
     for (var file in files) {
         var api = require(files[file]);
 
-        apiFiles[api.path] = api;
+        endpoints[api.path] = api;
         fakeApi.addApi(api);
     }
 
     app.get('/config', function (req, res) {
         // generate responses
-        for (var endpoint in apiFiles) {
-            apiFiles[endpoint].actual = responseUtils.generateResponse(apiFiles[endpoint].response);
+        for (var endpoint in endpoints) {
+            endpoints[endpoint].actual = responseUtils.generateResponse(endpoints[endpoint].response);
         }
 
-        res.render('config', { constants: Constants, apiFiles: apiFiles });
+        res.render('config', { constants: Constants, endpoints: endpoints });
     });
 
     // handle 404s
