@@ -6,6 +6,7 @@ html(lang="en-GB")
     body
         if endpoints
             nav
+                h2 Available APIs
                 ul.endpoints
                     each endpoint in endpoints
                         li.endpoint #[a(href='/config?endpoint='+endpoint.path)= endpoint.path)] [#{endpoint.type}]

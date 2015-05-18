@@ -28,8 +28,6 @@ mixin renderEndpoint(description, actual)
                 +renderAttribute(attribute, actual[attributeName])
 
 block body
-    h1 Available APIs
-
     ul.endpoints
         each endpoint in endpoints
             li.endpoint
