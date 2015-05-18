@@ -6,4 +6,6 @@ block body
         p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
         iframe(src=endpoint.path)
         +renderResponse(endpoint.response, endpoint.actual)
+    else
+        p Select an API to view
 
