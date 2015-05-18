@@ -23,14 +23,11 @@ glob('./api/**/*Api.js', function (err, files) {
         var api = require(files[file]);
 
         endpoints[api.path] = api;
+        endpoints[api.path].actual = responseUtils.generateResponse(api.response);
         fakeApi.addApi(api);
     }
 
     app.get('/config', function (req, res) {
-        // generate responses
-        for (var endpoint in endpoints) {
-            endpoints[endpoint].actual = responseUtils.generateResponse(endpoints[endpoint].response);
-        }
 
         res.render('config', { constants: Constants, endpoints: endpoints });
     });
