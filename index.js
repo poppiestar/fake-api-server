@@ -9,6 +9,8 @@ var endpoints = {};
 
 var app = express();
 
+var configPage = '/config';
+
 app.set('views', './views');
 app.set('view engine', 'jade');
 
@@ -27,7 +29,7 @@ glob('./api/**/*Api.js', function (err, files) {
         fakeApi.addApi(api);
     }
 
-    app.get('/config', function (req, res) {
+    app.get(configPage, function (req, res) {
         var endpoint;
 
         if (req.query.endpoint) {
@@ -37,7 +39,7 @@ glob('./api/**/*Api.js', function (err, files) {
         res.render('config', { constants: Constants, endpoints: endpoints, endpoint: endpoints[endpoint] });
     });
 
-    app.post('/config', function (req, res) {
+    app.post(configPage, function (req, res) {
         res.status(200).send('Post received');
     });
 
