@@ -19,9 +19,9 @@ mixin renderAttribute(attribute, value)
         else if attribute.type === constants.COLLECTION
             h2 Collection:
             p Count: #{attribute.count}
-            //+renderEndpoint(attribute.response, value.actual)
+            +renderResponse(attribute.response, value)
 
-mixin renderEndpoint(description, actual)
+mixin renderResponse(description, actual)
     ul.response
         each attribute, attributeName in description
             li #{attributeName}:
@@ -33,5 +33,5 @@ block body
             li.endpoint
                 p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
                 iframe(src=endpoint.path)
-                +renderEndpoint(endpoint.response, endpoint.actual)
+                +renderResponse(endpoint.response, endpoint.actual)
 
