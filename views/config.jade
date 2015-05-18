@@ -1,3 +1,5 @@
+extends ./layout.jade
+
 mixin renderAttribute(attribute, value)
     .attribute
         p #{attribute.description} #{value}
@@ -22,17 +24,13 @@ mixin renderEndpoint(description, actual)
             li #{attributeName}:
                 +renderAttribute(attribute, actual[attributeName])
 
-doctype html
-html(lang="en-GB")
-    head
-        title Fake API Server Config Page
-    body
-        h1 Available APIs
+block body
+    h1 Available APIs
 
-        ul.apis
-            each api in apiFiles
-                li.api
-                    p Path: #{api.path} - #{api.type} - #{api.name}
-                    iframe(src=api.path)
-                    +renderEndpoint(api.response, api.actual)
+    ul.apis
+        each api in apiFiles
+            li.api
+                p Path: #{api.path} - #{api.type} - #{api.name}
+                iframe(src=api.path)
+                +renderEndpoint(api.response, api.actual)
 
