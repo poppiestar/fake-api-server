@@ -2,7 +2,7 @@ extends ./layout.jade
 
 mixin renderAttribute(attribute, value)
     .attribute
-        p #{attribute.description} #{value}
+        p #{attribute.description}
 
         if attribute.type === constants.BOOLEAN
             p Boolean:
