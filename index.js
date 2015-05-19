@@ -45,7 +45,7 @@ glob('./api/**/*Api.js', function (err, files) {
 
     // handle 404s
     app.use(function (req, res) {
-        res.status(404).render('404');
+        res.status(404).render('404', { configPage: configPage });
     });
 
     app.listen(4040, function () {
