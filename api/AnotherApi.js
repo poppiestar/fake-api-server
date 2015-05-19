@@ -16,7 +16,17 @@ module.exports = {
         },
         news: {
             type: Constants.OBJECT,
-            description: 'An object describing news'
+            description: 'An object describing news',
+            response: {
+                example: {
+                    type: Constants.BOOLEAN,
+                    description: 'Is this an example or not?'
+                },
+                another: {
+                    type: Constants.STRING,
+                    description: 'Another string to display'
+                }
+            }
         }
     }
 };
