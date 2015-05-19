@@ -3,7 +3,7 @@ include ./renderMixins.jade
 
 block body
     if endpoint
-        form(action='/config', method='post')
+        form(action=configPage, method='post')
             p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
             iframe(src=endpoint.path)
             +renderResponse(endpoint.response, endpoint.actual)

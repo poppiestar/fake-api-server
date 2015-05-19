@@ -36,7 +36,7 @@ glob('./api/**/*Api.js', function (err, files) {
             endpoint = req.query.endpoint;
         }
         
-        res.render('config', { constants: Constants, endpoints: endpoints, endpoint: endpoints[endpoint] });
+        res.render('config', { constants: Constants, endpoints: endpoints, endpoint: endpoints[endpoint], configPage: configPage });
     });
 
     app.post(configPage, function (req, res) {
