@@ -22,11 +22,12 @@ glob('./api/**/*Api.js', function (err, files) {
     }
 
     for (var file in files) {
-        var api = require(files[file]);
+        var filename = files[file];
+        var api = require(filename);
 
         endpoints[api.path] = api;
-        endpoints[api.path].actual = responseUtils.loadResponse(file, api);
-        fakeApi.addApi(api);
+        endpoints[api.path].actual = responseUtils.loadResponse(filename, api);
+        fakeApi.addApi(endpoints, api);
     }
 
     app.get(configPage, function (req, res) {
