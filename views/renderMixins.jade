@@ -3,23 +3,23 @@ mixin renderAttribute(attribute, value)
     .attribute
         p #{attribute.description}
 
-        if attribute.type === constants.BOOLEAN
+        if attribute.type === types.BOOLEAN
             p Boolean:
                 input(type='checkbox', checked=value)
 
-        else if attribute.type === constants.STRING
+        else if attribute.type === types.STRING
             p String:
                 input(type='text', value=value)
 
-        else if attribute.type === constants.NUMBER
+        else if attribute.type === types.NUMBER
             p Number:
                 input(type='number', value=value)
 
-        else if attribute.type === constants.OBJECT
+        else if attribute.type === types.OBJECT
             div Object:
             +renderResponse(attribute.response, value)
 
-        else if attribute.type === constants.COLLECTION
+        else if attribute.type === types.COLLECTION
             h2 Collection:
             p Count: #{attribute.count}
             +renderResponse(attribute.response, value)
