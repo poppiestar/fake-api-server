@@ -25,7 +25,7 @@ glob('./api/**/*Api.js', function (err, files) {
         var api = require(files[file]);
 
         endpoints[api.path] = api;
-        endpoints[api.path].actual = responseUtils.generateResponse(api.response);
+        endpoints[api.path].actual = responseUtils.loadResponse(file, api);
         fakeApi.addApi(api);
     }
 
