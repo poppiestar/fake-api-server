@@ -1,5 +1,5 @@
 
-var Constants = require('../lib/api-constants');
+var Types = require('../lib/api-types');
 
 module.exports = {
     'name': 'Test API',
@@ -7,24 +7,24 @@ module.exports = {
     'type': 'GET',
     'response': {
         valid: {
-            type: Constants.BOOLEAN,
+            type: Types.BOOLEAN,
             description: 'Whether the thing is valid'
         },
         name: {
-            type: Constants.STRING,
+            type: Types.STRING,
             description: 'The name of the thing'
         },
         count: {
-            type: Constants.NUMBER,
+            type: Types.NUMBER,
             description: 'The number of things'
         },
         things: {
-            type: Constants.COLLECTION,
+            type: Types.COLLECTION,
             description: 'A group of things',
             count: 3,
             response: {
                 firstname: {
-                    type: Constants.STRING,
+                    type: Types.STRING,
                     description: 'Firstname'
                 }
             }
