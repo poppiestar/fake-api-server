@@ -22,8 +22,6 @@ mixin renderAttribute(attribute, value)
         else if attribute.type === types.COLLECTION
             h2 Collection:
             p Count: #{attribute.count}
-            p= JSON.stringify(attribute)
-            p= value
             +renderCollection(attribute.response, value)
 
 mixin renderResponse(description, actual)
@@ -33,5 +31,6 @@ mixin renderResponse(description, actual)
                 +renderAttribute(attribute, actual[attributeName])
 
 mixin renderCollection(collection, values)
-    p To come soon
+    each value in values
+        +renderResponse(collection, value)
 
