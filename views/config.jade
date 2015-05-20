@@ -2,12 +2,23 @@ extends ./layout.jade
 include ./renderMixins.jade
 
 block body
-    if endpoint
-        form(action=configPage, method='post')
-            p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
-            iframe(src=endpoint.path)
-            +renderResponse(endpoint.response, endpoint.actual)
-            input(type='submit', value='Submit')
-    else
-        p Select an API to view
+    .row
+        if endpoints
+            .col-md-3
+                nav
+                    h2 Available APIs
+                    ul.endpoints
+                        each endpoint in endpoints
+                            li.endpoint #[a(href=configPage+'?endpoint='+endpoint.path)= endpoint.path] [#{endpoint.type}]
+                    
+        .col-md-9
+            if endpoint
+                form(action=configPage, method='post')
+                    input(type='hidden', value=endpoint.path, name='path')
+                    p Path: #{endpoint.path} - #{endpoint.type} - #{endpoint.name}
+                    iframe(src=endpoint.path)
+                    +renderResponse(endpoint.response, endpoint.actual)
+                    input(type='submit', value='Submit')
+            else
+                p Select an API to view
 
