@@ -1,6 +1,7 @@
 
 var express = require('express');
 var serveStatic = require('serve-static');
+var bodyParser = require('body-parser');
 var fakeApi = require('./lib/api-server');
 
 var app = express();
@@ -8,6 +9,7 @@ var app = express();
 app.set('views', './views');
 app.set('view engine', 'jade');
 
+app.use(bodyParser());
 app.use(serveStatic(__dirname + '/node_modules/bootstrap/dist'));
 app.use(fakeApi.api());
 
