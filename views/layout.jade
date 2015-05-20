@@ -5,11 +5,13 @@ html(lang="en-GB")
         block title
             title Fake API Server Config Page
     body
-        if endpoints
-            nav
-                h2 Available APIs
-                ul.endpoints
-                    each endpoint in endpoints
-                        li.endpoint #[a(href=configPage+'?endpoint='+endpoint.path)= endpoint.path] [#{endpoint.type}]
-            
-        block body
+        .container
+            if endpoints
+                nav
+                    h2 Available APIs
+                    ul.endpoints
+                        each endpoint in endpoints
+                            li.endpoint #[a(href=configPage+'?endpoint='+endpoint.path)= endpoint.path] [#{endpoint.type}]
+                
+            block body
+
