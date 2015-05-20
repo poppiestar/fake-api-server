@@ -20,13 +20,15 @@
   "author": "Drew Miller",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^3.3.4",
     "chance": "^0.7.3",
     "clone": "^1.0.2",
     "express": "^4.12.3",
     "filename-changer": "^1.0.0",
     "glob": "^5.0.6",
     "jade": "^1.9.2",
-    "jsonfile": "^2.0.0"
+    "jsonfile": "^2.0.0",
+    "serve-static": "^1.9.3"
   },
   "devDependencies": {
     "mocha": "^2.2.4",
